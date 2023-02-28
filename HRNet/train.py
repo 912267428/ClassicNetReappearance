@@ -18,7 +18,7 @@ def create_model(num_joints, load_pretrain_weights=True):
     if load_pretrain_weights:
         # 载入预训练模型权重
         # 链接:https://pan.baidu.com/s/1Lu6mMAWfm_8GGykttFMpVw 提取码:f43o
-        weights_dict = torch.load("./hrnet_w32.pth", map_location='cpu')
+        weights_dict = torch.load("./pre_weight/imagenet/hrnet_w32-36af842e.pth", map_location='cpu')
 
         for k in list(weights_dict.keys()):
             # 如果载入的是imagenet权重，就删除无用权重
@@ -177,13 +177,12 @@ def main(args):
 if __name__ == "__main__":
     import argparse
 
-    parser = argparse.ArgumentParser(
-        description=__doc__)
+    parser = argparse.ArgumentParser(description=__doc__)
 
     # 训练设备类型
     parser.add_argument('--device', default='cuda:0', help='device')
     # 训练数据集的根目录(coco2017)
-    parser.add_argument('--data-path', default='/data/coco2017', help='dataset')
+    parser.add_argument('--data-path', default=r'D:\Study\project\dataset\COCO2017', help='dataset')
     # COCO数据集人体关键点信息
     parser.add_argument('--keypoints-path', default="./person_keypoints.json", type=str,
                         help='person_keypoints.json path')
@@ -214,7 +213,7 @@ if __name__ == "__main__":
                         metavar='W', help='weight decay (default: 1e-4)',
                         dest='weight_decay')
     # 训练的batch size
-    parser.add_argument('--batch-size', default=32, type=int, metavar='N',
+    parser.add_argument('--batch-size', default=8, type=int, metavar='N',
                         help='batch size when training.')
     # 是否使用混合精度训练(需要GPU支持混合精度)
     parser.add_argument("--amp", action="store_true", help="Use torch.cuda.amp for mixed precision training")
