@@ -1,3 +1,4 @@
+import torch
 import torch.nn as nn
 
 BN_MOMENTUM = 0.1
@@ -276,3 +277,16 @@ class HighResolutionNet(nn.Module):
         x = self.final_layer(x[0])
 
         return x
+
+def get_hrnet(base_channel=32, num_joints=17):
+    model = HighResolutionNet(base_channel, num_joints)
+    return model
+
+if __name__ == '__main__':
+    hrnet = get_hrnet()
+    # print(hrnet)
+    # 创建一个随机的输入
+    input = torch.randn(1, 3, 256, 192)
+    # 前向传播
+    output = hrnet(input)
+    print(output.shape)
