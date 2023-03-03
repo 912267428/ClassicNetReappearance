@@ -102,7 +102,13 @@ class CocoKeypoint(data.Dataset):
 
 
 if __name__ == '__main__':
-    train = CocoKeypoint("/data/coco2017/", dataset="val")
-    print(len(train))
-    t = train[0]
-    print(t)
+    # train = CocoKeypoint(r"D:\Study\project\dataset\COCO2017", dataset="train", years="2017")
+    # print(len(train))
+    # t = train[0]
+    # print(t)
+    coco = COCO(r"D:\Study\project\dataset\COCO2017\annotations\person_keypoints_train2017.json")
+    print(coco)
+    img_ids = list(sorted(coco.imgs.keys()))
+    # print(img_ids)
+    a = coco.loadImgs(img_ids[0])
+    print(a[0])

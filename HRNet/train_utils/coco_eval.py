@@ -6,7 +6,7 @@ import numpy as np
 from pycocotools.coco import COCO
 from pycocotools.cocoeval import COCOeval
 from .distributed_utils import all_gather, is_main_process
-from transforms import affine_points
+from HRNet.transforms import affine_points
 
 
 def merge(img_ids, eval_results):

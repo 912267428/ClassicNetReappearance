@@ -180,7 +180,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
 
     # 训练设备类型
-    parser.add_argument('--device', default='cuda:0', help='device')
+    parser.add_argument('--device', default='cpu', help='device')
     # 训练数据集的根目录(coco2017)
     parser.add_argument('--data-path', default=r'D:\Study\project\dataset\COCO2017', help='dataset')
     # COCO数据集人体关键点信息
@@ -213,7 +213,7 @@ if __name__ == "__main__":
                         metavar='W', help='weight decay (default: 1e-4)',
                         dest='weight_decay')
     # 训练的batch size
-    parser.add_argument('--batch-size', default=2, type=int, metavar='N',
+    parser.add_argument('--batch-size', default=4, type=int, metavar='N',
                         help='batch size when training.')
     # 是否使用混合精度训练(需要GPU支持混合精度)
     parser.add_argument("--amp", action="store_true", help="Use torch.cuda.amp for mixed precision training")
