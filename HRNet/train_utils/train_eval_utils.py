@@ -4,8 +4,8 @@ import time
 
 import torch
 
-import transforms
-import train_utils.distributed_utils as utils
+import HRNet.transforms
+import HRNet.train_utils.distributed_utils as utils
 from .coco_eval import EvalCOCOMetric
 from .loss import KpLoss
 

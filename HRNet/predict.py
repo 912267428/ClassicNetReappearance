@@ -22,8 +22,8 @@ def predict_single_person():
 
     flip_test = True
     resize_hw = (256, 192)
-    img_path = "./person.png"
-    weights_path = "./pose_hrnet_w32_256x192.pth"
+    img_path = r"C:\Users\Rodney\Desktop\4.jpg"
+    weights_path = "./pre_weight/pose_coco/pose_hrnet_w32_256x192.pth"
     keypoint_json_path = "person_keypoints.json"
     assert os.path.exists(img_path), f"file: {img_path} does not exist."
     assert os.path.exists(weights_path), f"file: {weights_path} does not exist."
@@ -75,7 +75,7 @@ def predict_single_person():
         plot_img = draw_keypoints(img, keypoints, scores, thresh=0.2, r=3)
         plt.imshow(plot_img)
         plt.show()
-        plot_img.save("test_result.jpg")
+        plot_img.save(r"C:\Users\Rodney\Desktop\4_.jpg")
 
 
 if __name__ == '__main__':
