@@ -6,8 +6,10 @@ import torch
 
 
 import HRNet.train_utils.distributed_utils as utils
-from .coco_eval import EvalCOCOMetric
-from .loss import KpLoss
+# from .coco_eval import EvalCOCOMetric
+from HRNet.train_utils.coco_eval import EvalCOCOMetric
+# from .loss import KpLoss
+from HRNet.train_utils.loss import KpLoss
 import HRNet.transforms as transforms
 
 
